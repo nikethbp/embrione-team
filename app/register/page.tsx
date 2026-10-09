@@ -282,8 +282,36 @@ export default function RegisterPage() {
           </div>
         )}
 
+
+              {/* Live profile preview based on the entered information */}
+        <div className="mt-8 rounded-2xl border border-cyan-400/30 bg-white/5 p-6">
+          <p className="text-sm font-semibold uppercase tracking-widest text-cyan-400">
+            Live Profile Preview
+          </p>
+
+          {/* Show the uploaded photo when available */}
+          {photoPreview && (
+            <img
+              src={photoPreview}
+              alt="Profile preview"
+              className="mb-4 h-24 w-24 rounded-full border-2 border-cyan-400 object-cover"
+            />
+          )}
+
+          {/* Display the entered name or its placeholder */}
+          <h2 className="mt-4 text-2xl font-bold">{name || "Your Name"}</h2>
+
+          {/* Display the selected domain or its placeholder */}
+          <p className="mt-2 text-sm text-gray-400">
+            {domain || "Your selected domain"}
+          </p>
+
+          {/* Display the biography or its placeholder */}
+          <p className="mt-4 text-gray-300">
+            {bio || "Your short bio will appear here."}
+          </p>
+        </div>
         
-        {/* STAGE 7: live preview */}
       </div>
     </main>
   );
