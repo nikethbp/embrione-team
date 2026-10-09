@@ -26,7 +26,16 @@ export default function RegisterPage() {
         </p>
 
         {/* Registration form */}
-        <form className="mt-8 grid gap-6 rounded-2xl border border-white/10 bg-white/5 p-6">
+              <form
+          onSubmit={(event) => {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Display the demo submission confirmation
+            setSubmitted(true);
+          }}
+          className="mt-8 grid gap-6 rounded-2xl border border-white/10 bg-white/5 p-6"
+        >
         
 
         {/* Full name field */}
@@ -251,10 +260,29 @@ export default function RegisterPage() {
             />
             <p className="mt-2 text-xs text-gray-400">Upload a PNG or JPG image.</p>
           </div>
-          {/* STAGE 6: submit button */}
+
+          {/* Submit the registration form */}
+          <button
+            type="submit"
+            className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-black transition hover:bg-cyan-300"
+          >
+            Continue
+          </button>
         </form>
 
-        {/* STAGE 6: confirmation banner */}
+                {/* Display the submission confirmation */}
+        {submitted && (
+          <div className="mt-6 rounded-xl border border-cyan-400/30 bg-cyan-400/10 p-4">
+            <p className="font-semibold text-cyan-300">
+              Form submitted successfully!
+            </p>
+            <p className="mt-1 text-sm text-gray-300">
+              This is a demo confirmation. Your application has not been saved yet.
+            </p>
+          </div>
+        )}
+
+        
         {/* STAGE 7: live preview */}
       </div>
     </main>
