@@ -27,7 +27,68 @@ export default function RegisterPage() {
 
         {/* Registration form */}
         <form className="mt-8 grid gap-6 rounded-2xl border border-white/10 bg-white/5 p-6">
-          {/* STAGE 2: text fields */}
+        
+
+                  {/* Full name field */}
+          <div>
+            <label htmlFor="name" className="mb-2 block text-sm font-medium">
+              Full Name
+            </label>
+            <input
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Enter your full name"
+              required
+              className="w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-cyan-400"
+            />
+          </div>
+
+          {/* Email field */}
+          <div>
+            <label htmlFor="email" className="mb-2 block text-sm font-medium">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+              className="w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-cyan-400"
+            />
+          </div>
+
+          {/* Student registration number field */}
+          <div>
+            <label htmlFor="srn" className="mb-2 block text-sm font-medium">
+              SRN
+            </label>
+            <input
+              id="srn"
+              name="srn"
+              type="text"
+              placeholder="Enter your SRN"
+              required
+              className="w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-cyan-400"
+            />
+          </div>
+
+          {/* LinkedIn profile URL field */}
+          <div>
+            <label htmlFor="linkedin" className="mb-2 block text-sm font-medium">
+              LinkedIn URL
+            </label>
+            <input
+              id="linkedin"
+              name="linkedin_url"
+              type="url"
+              placeholder="https://www.linkedin.com/in/your-profile"
+              className="w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-cyan-400"
+            />
+          </div>
           {/* STAGE 3: dropdowns */}
           {/* STAGE 4: github + bio */}
           {/* STAGE 5: photo upload */}
