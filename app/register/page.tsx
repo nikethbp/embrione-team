@@ -224,7 +224,33 @@ export default function RegisterPage() {
             />
             <p className="mt-2 text-xs text-gray-400">Maximum 200 characters.</p>
           </div>
-          {/* STAGE 5: photo upload */}
+
+
+
+                  {/* Profile photo upload and preview handling */}
+          <div>
+            <label htmlFor="photo" className="mb-2 block text-sm font-medium">
+              Profile Photo
+            </label>
+            <input
+              onChange={(event) => {
+                // Get the first selected image file
+                const file = event.target.files?.[0];
+
+                // Create a temporary URL for the image preview
+                if (file) {
+                  setPhotoPreview(URL.createObjectURL(file));
+                }
+              }}
+              id="photo"
+              name="photo"
+              type="file"
+              accept="image/png,image/jpeg"
+              required
+              className="w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-sm text-gray-300 file:mr-4 file:rounded-full file:border-0 file:bg-cyan-400 file:px-4 file:py-2 file:font-semibold file:text-black"
+            />
+            <p className="mt-2 text-xs text-gray-400">Upload a PNG or JPG image.</p>
+          </div>
           {/* STAGE 6: submit button */}
         </form>
 
