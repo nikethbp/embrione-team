@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Embroine — Recruitment Portal
+
+A recruitment portal for **The Embrione, PES University**, built with Next.js and Supabase.
+
+## Features
+
+- **Homepage:** Navigation to registration, the team directory, and admin login.
+- **Candidate Registration:** Collects student details, academic information, domain and position preferences, profile photo, social links, and a short biography.
+- **Profile Photo Upload:** Uploads candidate photos to Supabase Storage.
+- **Admin Dashboard:** Allows administrators to review applications and approve or reject candidates.
+- **Team Directory:** Displays approved members and provides filtering options.
+- **Application Status:** Pending applications are reviewed before appearing on the public team page.
+- **Responsive Interface:** Dark-themed interface styled with Tailwind CSS.
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase Database
+- Supabase Storage
+- Vercel
+
+## Pages
+
+| Route | Purpose |
+|---|---|
+| `/` | Homepage |
+| `/register` | Candidate registration |
+| `/admin` | Admin login and application moderation |
+| `/team` | Approved team members |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js and npm
+- A Supabase project
+- The required Supabase environment variables
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/nikethbp/embrione-team.git
+cd embrione-team
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+Configure the required environment variables in a local `.env.local` file and in your deployment settings.
+
+Use the variable names expected by the application for Supabase and admin authentication. Keep all credentials and secret keys private.
+
+**Never commit `.env.local` or expose your Supabase service-role key, admin password, or session secret.**
+
+### Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The application is deployed using Vercel. Configure the required environment variables in the Vercel project settings before deploying.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Application Workflow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. A candidate submits the registration form and profile photo.
+2. The application is stored in Supabase with a pending status.
+3. An administrator reviews the application in the admin dashboard.
+4. Approved candidates appear on the team page.
+5. Rejected candidates are excluded from the public team directory.
 
-## Deploy on Vercel
+## Repository
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+GitHub: [nikethbp/embrione-team](https://github.com/nikethbp/embrione-team)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Built for The Embrione, PES University.
