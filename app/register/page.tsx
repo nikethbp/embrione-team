@@ -226,6 +226,7 @@ onSubmit={async (event) => {
             <select
               id="position"
               name="position"
+              defaultValue=""
               required
               className="w-full rounded-lg border border-white/10 bg-[#11141d] px-4 py-3 text-white outline-none focus:border-cyan-400"
             >
@@ -252,6 +253,7 @@ onSubmit={async (event) => {
               id="branch"
               name="branch"
               required
+              defaultValue=""
               className="w-full rounded-lg border border-white/10 bg-[#11141d] px-4 py-3 text-white outline-none focus:border-cyan-400"
             >
               <option value="" disabled>
@@ -280,6 +282,7 @@ onSubmit={async (event) => {
               id="semester"
               name="semester"
               required
+              defaultValue=""
               className="w-full rounded-lg border border-white/10 bg-[#11141d] px-4 py-3 text-white outline-none focus:border-cyan-400"
             >
               <option value="" disabled>
