@@ -50,14 +50,52 @@ onSubmit={async (event) => {
       throw new Error("Please select a profile photo.");
     }
 
-    const fileExtension =
-      photoFile.name.split(".").pop()?.toLowerCase() || "jpg";
-    const photoPath = `${crypto.randomUUID()}.${fileExtension}`;
 
+    // Convert the selected photo to WebP format
+    const bitmap = await createImageBitmap(photoFile);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = bitmap.width;
+    canvas.height = bitmap.height;
+
+    const context = canvas.getContext("2d");
+
+    if (!context) {
+      bitmap.close();
+      throw new Error("Could not process the profile photo.");
+    }
+
+    context.drawImage(bitmap, 0, 0);
+    bitmap.close();
+
+    const webpBlob = await new Promise<Blob>((resolve, reject) => {
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            resolve(blob);
+          } else {
+            reject(new Error("WebP conversion failed."));
+          }
+        },
+        "image/webp",
+        0.85
+      );
+    });
+
+    // Create a new WebP file
+    const webpFile = new File(
+      [webpBlob],
+      `${crypto.randomUUID()}.webp`,
+      { type: "image/webp" }
+    );
+
+    const photoPath = webpFile.name;
+
+    // Upload the converted WebP file to Supabase
     const { error: uploadError } = await supabase.storage
       .from("member-photos")
-      .upload(photoPath, photoFile, {
-        contentType: photoFile.type,
+      .upload(photoPath, webpFile, {
+        contentType: "image/webp",
         upsert: false,
       });
 
